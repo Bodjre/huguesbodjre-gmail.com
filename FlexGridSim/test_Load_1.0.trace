@@ -1,0 +1,5 @@
+flow-arrived 0.0 0 1 2 1000 0.4190175227589326 1
+lightpath-created 0 1 2 6_0 
+flow-accepted - 0 1 2 1000 0.4190175227589326 1 0
+flow-departed 1.390592778736885 0 - - - - -
+lightpath-removed 0 1 2 6_0 

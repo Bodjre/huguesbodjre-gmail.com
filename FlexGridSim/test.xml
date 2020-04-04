@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<flexgridsim version="0.1">
+    <rsa module="BestFitRCSA"/>
+
+    <trace file="trace.tr"/>
+
+    <traffic calls="1" load="215" max-rate="1000">
+	<calls holding-time="0.5" rate="1000" cos="1" weight="1"/>
+   <!-- <calls holding-time="0.5" rate="2000" cos="1" weight="1"/>
+    <calls holding-time="0.5" rate="200" cos="1" weight="1"/>-->
+    </traffic>
+
+     <virtual-topology  name="VIRTUAL_USA">
+	    <nodes>
+            <node id="0"/>
+            <node id="1"/>
+            <node id="2"/>
+            <node id="3"/>
+			
+        </nodes> 
+		<links>
+
+            <link id="0" source="0" destination="1" delay="4" bandwidth="192" weight="800" distance="800"/>
+            <link id="1" source="1" destination="0" delay="4" bandwidth="192" weight="800" distance="800"/>
+            <link id="2" source="0" destination="3" delay="5" bandwidth="192" weight="1000" distance="1000"/>
+            <link id="3" source="3" destination="0" delay="5" bandwidth="192" weight="1000" distance="1000"/>
+	        <link id="4" source="0" destination="2" delay="5.5" bandwidth="192" weight="1100" distance="1100"/>
+            <link id="5" source="2" destination="0" delay="5.5" bandwidth="192" weight="1100" distance="1100"/>
+			<link id="6" source="1" destination="2" delay="4.75" bandwidth="192" weight="950" distance="950"/>
+            <link id="7" source="2" destination="1" delay="4.75" bandwidth="192" weight="950" distance="950"/>
+            <link id="8" source="2" destination="3" delay="1.25" bandwidth="192" weight="250" distance="250"/>
+            <link id="9" source="3" destination="2" delay="1.25" bandwidth="192" weight="250" distance="250"/>
+        </links>
+	     
+     </virtual-topology>
+
+    <!-- je pense que chaque lien de la topologie physique à 180 slots a raison de 12.5 Gz de bP par slots soit 2250-->
+    <physical-topology name="USA" slots="180" slotsBandwidth="12.5">
+        <nodes>
+            <node id="0"/>
+            <node id="1"/>
+            <node id="2"/>
+            <node id="3"/>
+
+        </nodes> 
+        <links>
+
+            <link id="0" source="0" destination="1" delay="4" bandwidth="192" weight="800" distance="800"/>
+            <link id="1" source="1" destination="0" delay="4" bandwidth="192" weight="800" distance="800"/>
+            <link id="2" source="0" destination="3" delay="5" bandwidth="192" weight="1000" distance="1000"/>
+            <link id="3" source="3" destination="0" delay="5" bandwidth="192" weight="1000" distance="1000"/>
+	        <link id="4" source="0" destination="2" delay="5.5" bandwidth="192" weight="1100" distance="1100"/>
+            <link id="5" source="2" destination="0" delay="5.5" bandwidth="192" weight="1100" distance="1100"/>
+			<link id="6" source="1" destination="2" delay="4.75" bandwidth="192" weight="950" distance="950"/>
+            <link id="7" source="2" destination="1" delay="4.75" bandwidth="192" weight="950" distance="950"/>
+            <link id="8" source="2" destination="3" delay="1.25" bandwidth="192" weight="250" distance="250"/>
+            <link id="9" source="3" destination="2" delay="1.25" bandwidth="192" weight="250" distance="250"/> 
+         </links>
+    </physical-topology>
+    <graphs>
+    	<graph name="mbbr" dots-file="bf-graph-mbbr-usa.dat"/><!-- construction de graphe -->
+		
+    </graphs>
+</flexgridsim>
